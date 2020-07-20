@@ -1,2 +1,2 @@
 # learning_python
-Learning stuff and exercise projects
+Beginner learning stuff and exercise projects that I found on the web or did.
