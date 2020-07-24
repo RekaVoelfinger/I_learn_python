@@ -1,6 +1,5 @@
 import id_nrs
 
-
 class Account:
     def __init__(self):
         self.bank_card_nr = ""
