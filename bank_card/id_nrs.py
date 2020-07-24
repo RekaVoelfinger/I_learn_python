@@ -6,8 +6,8 @@ class IdNrs:
 
     def __init__(self, length, id_type):
         self.length = length
-        self.digits = "400000"
-        self.num_digits = []
+        self.digits = ""
+        self.num_digits = [4, 0, 0, 0, 0, 0]
         self.checksum = ""
         self.id_type = id_type
 
@@ -18,17 +18,17 @@ class IdNrs:
 
     def string2number(self):
         i = 0
-        for i in range(length(self.digits)):
+        for i in range(len(self.digits)):
             self.num_digits.append(int(self.digits[i]))
 
     def duble_even_digits(self):
         i = 0
-        for i in range(length(self.num_digits)):
+        for i in range(len(self.num_digits)):
             self.num_digits[i] += self.num_digits[i]
             i += 2
 
     def calculate_checksum(self):
-        self.checksum = 10 - sum(self.num_digits)%10
+        self.checksum = str(10 - sum(self.num_digits)%10)
 
     def luhn_algorithm(self):
         self.random_numeric_id()
@@ -38,7 +38,7 @@ class IdNrs:
 
     def generate_card_nr(self):
         self.luhn_algorithm()
-        self.digits = self.mii + self.inn + self.random_numeric_id() + self.checksum
+        self.digits += self.checksum
         self.id_type = "card number"
         return self.digits
 
